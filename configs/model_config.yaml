@@ -1,0 +1,54 @@
+# PPG血压估计模型配置文件
+
+# 原始模型配置
+original_models:
+  papagei_s:
+    architecture: "ResNet1DMoE"
+    base_filters: 32
+    kernel_size: 3
+    stride: 2
+    groups: 1
+    n_block: 18
+    n_classes: 512
+    n_experts: 3
+    target: "diasbp"
+
+  papagei_s_svri:
+    architecture: "ResNet1D"
+    base_filters: 32
+    kernel_size: 3
+    stride: 2
+    groups: 1
+    n_block: 18
+    n_classes: 512
+    target: "hr"
+
+  papagei_p:
+    architecture: "ResNet1D"
+    base_filters: 32
+    kernel_size: 3
+    stride: 2
+    groups: 1
+    n_block: 18
+    n_classes: 512
+    target: "sysbp"
+
+# 简化模型配置（推荐用于小数据集）
+simplified_models:
+  simplified_hr:
+    architecture: "SimplifiedResNet1D"
+    n_classes: 64
+    dropout_rate: 0.5
+    target: "hr"
+
+  simplified_sysbp:
+    architecture: "SimplifiedResNet1D"
+    n_classes: 64
+    dropout_rate: 0.4
+    target: "sysbp"
+
+  simplified_diasbp:
+    architecture: "SimplifiedResNet1D"
+    n_classes: 64
+    dropout_rate: 0.4
+    target: "diasbp"

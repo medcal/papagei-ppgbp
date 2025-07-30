@@ -1,0 +1,28 @@
+# 数据配置文件
+
+# 数据路径配置
+data_paths:
+  base_dir: "E:/thsiu-ppg/5459299/PPG-BP Database"  # 修改为您的数据路径
+  dataset_file: "Data File/PPG-BP dataset.xlsx"
+  signal_dir: "Data File/0_subject/"
+  ppg_dir: "Data File/ppg/"
+
+# 数据预处理配置
+preprocessing:
+  sampling_rate: 1000
+  target_rate: 125
+  signal_length: 1250
+  normalization: "z-score"
+
+# 数据分割配置
+data_split:
+  train_ratio: 0.56
+  val_ratio: 0.19
+  test_ratio: 0.25
+  random_seed: 42
+
+# 目标变量
+targets:
+  hr: "Heart Rate (bpm)"
+  sysbp: "Systolic BP (mmHg)"
+  diasbp: "Diastolic BP (mmHg)"

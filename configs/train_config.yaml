@@ -1,0 +1,27 @@
+# 训练配置文件
+
+# 原始训练配置
+original_training:
+  batch_size: 32
+  learning_rate: 0.001
+  num_epochs: 30
+  weight_decay: 1e-5
+  patience: 10
+  scheduler: "ReduceLROnPlateau"
+
+# 改进训练配置（针对小数据集）
+improved_training:
+  batch_size: 8
+  learning_rate: 0.0001
+  num_epochs: 100
+  weight_decay: 1e-3
+  patience: 20
+  scheduler: "CosineAnnealingWarmRestarts"
+  gradient_clip_norm: 1.0
+  use_data_augmentation: true
+
+# WandB配置
+wandb:
+  project: "ppg-blood-pressure-estimation"
+  entity: "your-wandb-username"  # 替换为您的WandB用户名
+  tags: ["ppg", "blood-pressure", "deep-learning"]
